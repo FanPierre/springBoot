@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--一个Class对应一个数据库的一个表，保存时将javaBean分解成一个个字段，拼装成一个SQL
+，查询是将查询的数据组成一个JavaBean
+-->
+<!--   This mapping demonstrates content-based discrimination for the  table-per-hierarchy mapping strategy, using a formula  discriminator.-->
+<!--在哪个包之下-->
+<hibernate-mapping    package="com.example.spring.bean">
+<!--JaveBean名-->
+    <class name="SimulateUser" lazy="true" table="User">
+
+        <!--Bean的ID对应表的ID-->
+        <id name="id" column="id">
+            <!--根据底层数据库自动增长-->
+            <generator class="native"/>
+        </id>
+        <property name="username" column="username"/>
+        <property name="password" column="password"/>
+        <property name="cellPhone" column="cellphone"/>
+
+
+    </class>
+
+</hibernate-mapping>
